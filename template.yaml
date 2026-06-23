@@ -21,6 +21,9 @@ Resources:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: '10.0.0.0/16'
+      Tags:
+        - Key: Name
+          Value: "Project-VPC"
 
 # ==============================================================================
 # Public Subnets
@@ -32,6 +35,9 @@ Resources:
       CidrBlock: 10.0.1.0/24
       AvailabilityZone: !Ref AZ1
       MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: Public-Subnet-AZ1
 
   PublicSubnet2:
     Type: AWS::EC2::Subnet
@@ -40,6 +46,9 @@ Resources:
       CidrBlock: 10.0.2.0/24
       AvailabilityZone: !Ref AZ2
       MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: Public-Subnet-AZ2
 
 # ==============================================================================
 # Private Subnets
@@ -51,6 +60,9 @@ Resources:
       CidrBlock: 10.0.11.0/24
       AvailabilityZone: !Ref AZ1
       MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Name
+          Value: Private-Subnet-AZ1
 
   PrivateSubnet2:
     Type: AWS::EC2::Subnet
@@ -59,6 +71,9 @@ Resources:
       CidrBlock: 10.0.12.0/24
       AvailabilityZone: !Ref AZ2
       MapPublicIpOnLaunch: false
+      Tags:
+        - Key: Name
+          Value: Private-Subnet-AZ2
 
 # ==============================================================================
 # Internet Gateway
@@ -66,6 +81,10 @@ Resources:
 
   MyInternetGateway:
     Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: Project-IGW
 
   InternetGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
@@ -81,6 +100,9 @@ Resources:
     Type: AWS::EC2::RouteTable
     Properties:
       VpcId: !Ref MyVPC
+      Tags:
+        - Key: Name
+          Value: Public-Route-Table
 
   MyRoute:
     Type: AWS::EC2::Route
@@ -110,6 +132,9 @@ Resources:
     Type: AWS::EC2::RouteTable
     Properties:
       VpcId: !Ref MyVPC
+      Tags:
+        - Key: Name
+          Value: Private-Route-Table
 
   MyPrivateRouteTableAssociation1:
     Type: AWS::EC2::SubnetRouteTableAssociation
@@ -145,6 +170,9 @@ Resources:
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: WebServer-SG
 
 Outputs:
   VPC:
