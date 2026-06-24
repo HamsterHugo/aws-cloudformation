@@ -11,3 +11,7 @@ The objective of this project is to design, deploy, and document a highly availa
 * an Internet Gateway
 * a public and a private route table
 * a security group allowing HTTP, HTTPS, and SSH traffic
+
+## 🏗️ Architecture Diagram
+
+![Architecture Diagram](Diagram.png)
