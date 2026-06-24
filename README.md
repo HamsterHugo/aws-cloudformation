@@ -67,3 +67,19 @@ aws cloudformation describe-stacks --stack-name network-infrastructure-cli
 ```
 Repeat the command until `StackStatus` shows `CREATE_COMPLETE`.
 
+### 3b. Deployment - AWS Management Console
+
+1. Login to AWS
+2. Check the region. It has to be `us-east-1`.
+3. Enter `CloudFormation` in to the search box and select it.
+4. Click on the button `Create Stack`.
+5. Choose `With new Resources (Standard)` .
+6. In the section `Prerequisite - Prepare template` choose `Template is ready`.
+7. In the section `Specify template` choose `Upload a template file` and select the file `template.yaml`.
+8. Click on the button `Next`.
+9. Enter `network-infrastructure` for the field `Stack name`.
+10. CLick on the button `Next`.
+11. Keep the defaults for `Stack Options`.
+12. Click on the button `Next`.
+13. Check the summary and finally click on the button `Submit`.
+14. Now AWS creates the stack. Click on the `Events` tab and wait until the status of each reasource changed from `CREATE_IN_PROGRESS` to `CREATE_CPMPLETE`.
