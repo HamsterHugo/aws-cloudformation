@@ -23,10 +23,6 @@ You need the following for deploying this infrastructure:
 * basic knowledge of AWS
 * an AWS account
 * AWS CLI (v2.34.38 or later) - [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-* AWS CLI configurated with your credentials. Use the command
-  ```bash
-  aws configure
-  ```
 * git for cloning the repository
 
 ## 📁 Repository Structure
@@ -40,4 +36,20 @@ aws-cloudformation/
 ├── Diagram.png               # Diagram of the infrastructure
 ├── README.md                 # This file
 └── template.yaml             # Infrastructure file
+```
+
+## 🔧 Deployment Steps
+
+### 1. Configure AWS CLI
+
+Configure AWS CLI using the command:
+```bash
+aws configure
+```
+Enter your credentials.
+
+### 2. Clone the Repository
+```bash
+git clone https://github.com/HamsterHugo/aws-cloudformation.git
+cd aws-cloudformation
 ```
