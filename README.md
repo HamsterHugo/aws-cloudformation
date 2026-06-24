@@ -28,3 +28,16 @@ You need the following for deploying this infrastructure:
   aws configure
   ```
 * git for cloning the repository
+
+## 📁 Repository Structure
+
+```
+aws-cloudformation/
+├── screenshots               # Folder with screenshots
+    ├── CLI                   # Folder with CLI screenshots
+    └── Management-Console    # Folder with Management Console screenshots
+├── Diagram.excalidraw        # Excalidraw file for the diagram
+├── Diagram.png               # Diagram of the infrastructure
+├── README.md                 # This file
+└── template.yaml             # Infrastructure file
+```
