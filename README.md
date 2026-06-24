@@ -15,3 +15,16 @@ The objective of this project is to design, deploy, and document a highly availa
 ## 🏗️ Architecture Diagram
 
 ![Architecture Diagram](Diagram.png)
+
+## 📋 Prerequisites
+
+You need the following for deploying this infrastructure:
+
+* basic knowledge of AWS
+* an AWS account
+* AWS CLI (v2.34.38 or later) - [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+* AWS CLI configurated with your credentials. Use the command
+  ```bash
+  aws configure
+  ```
+* git for cloning the repository
