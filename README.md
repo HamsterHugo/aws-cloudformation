@@ -53,3 +53,17 @@ Enter your credentials.
 git clone https://github.com/HamsterHugo/aws-cloudformation.git
 cd aws-cloudformation
 ```
+
+### 3a. Deployment - AWS CLI
+
+1. Create the stack:
+```Bash
+aws cloudformation create-stack --stack-name network-infrastructure-cli --template-body file://template.yaml
+```
+
+2. Check the status:
+```Bash
+aws cloudformation describe-stacks --stack-name network-infrastructure-cli
+```
+Repeat the command until `StackStatus` shows `CREATE_COMPLETE`.
+
