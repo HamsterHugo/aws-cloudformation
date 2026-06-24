@@ -83,3 +83,29 @@ Repeat the command until `StackStatus` shows `CREATE_COMPLETE`.
 12. Click on the button `Next`.
 13. Check the summary and finally click on the button `Submit`.
 14. Now AWS creates the stack. Click on the `Events` tab and wait until the status of each reasource changed from `CREATE_IN_PROGRESS` to `CREATE_CPMPLETE`.
+
+### 4a. Validation - AWS CLI
+
+1. View your stack and select the tab `Resources`:
+![Screenshot-1](screenshots/Management-Console/01-stack-resources.png)
+
+2. Select the tab `Outputs`:
+![Screenshot-2](screenshots/Management-Console/02-stack-outputs.png)
+
+3. Enter `VPC` in the search box, select it and click on `Your VPCs`:
+![Screenshot-3](screenshots/Management-Console/03-vpc-overview.png)
+
+4. Click on `Subnets` in left navigation pane:
+![Screenshot-4](screenshots/Management-Console/04-subnets-overview.png)
+
+5. Click on `Route Tables` in the left navigation pane. In the section `Public RT` choose `Routes`:
+![Screenshot-5](screenshots/Management-Console/05-public-route-table-routes.png)
+
+6. Select the tab `Subnet Associations`:
+![Screenshot-6](screenshots/Management-Console/06-public-route-table-associations.png)
+
+7. Click on `Internet Gateways` in the left navigation pane:
+![Screenshot-7](screenshots/Management-Console/07-internet-gateway.png)
+
+8. Click on `Security Groups` in the left navigation pane. Select the Security Group `Webserver-SG`. Choose the tab `Inbound Rules`:
+![Screenshot-8](screenshots/Management-Console/08-security-group-inbound-rules.png)
