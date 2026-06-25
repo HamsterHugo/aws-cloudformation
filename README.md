@@ -84,6 +84,28 @@ Repeat the command until `StackStatus` shows `CREATE_COMPLETE`.
 13. Check the summary and finally click on the button `Submit`.
 14. Now AWS creates the stack. Click on the `Events` tab and wait until the status of each reasource changed from `CREATE_IN_PROGRESS` to `CREATE_CPMPLETE`.
 
+### 4a. Validation - AWS CLI
+
+1. To check the creation of the resources enter the following command:
+```Bash
+aws cloudformation describe-stack-resources --stack-name network-infrastructure-cli --no-cli-pager
+```
+![Screenshot-2](screenshots/CLI/02-stack-resources.png)
+
+2. To check the output enter the following command:
+```Bash
+aws cloudformation describe-stacks --stack-name network-infrastructure-cli --query "Stacks[0].Outputs"
+```
+![Screenshot-3](screenshots/CLI/03-outputs.png)
+Take a note of the VPC id (`vpc-...`).
+
+3. To check the creation of the subsnets enter the following command:
+```
+Bash
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=<your-vpc-id> -no-cli-pager"
+```
+![Screenshot-4](screenshots/CLI/04-subnets.png)
+
 ### 4b. Validation - AWS Management Console
 
 1. View your stack and select the tab `Resources`:
