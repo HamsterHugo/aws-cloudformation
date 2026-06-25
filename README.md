@@ -84,7 +84,7 @@ Repeat the command until `StackStatus` shows `CREATE_COMPLETE`.
 13. Check the summary and finally click on the button `Submit`.
 14. Now AWS creates the stack. Click on the `Events` tab and wait until the status of each reasource changed from `CREATE_IN_PROGRESS` to `CREATE_CPMPLETE`.
 
-### 4a. Validation - AWS CLI
+### 4b. Validation - AWS Management Console
 
 1. View your stack and select the tab `Resources`:
 ![Screenshot-1](screenshots/Management-Console/01-stack-resources.png)
