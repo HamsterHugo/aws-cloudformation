@@ -145,3 +145,12 @@ aws cloudformation describe-stacks --stack-name network-infrastructure-cli
 ```
 If you get an error message the deletion was successful.
 ![Screenshot-5](screenshots/CLI/05-stack-deletion.png)
+
+### 5b. Cleanup - AWS Management Console
+
+1. Enter `Cloudformation` into the search box and select it which opens the CloudFormation console.
+2. Select the stack and click on the button `Delete`.
+3. In the conformation window click on `Delete`.
+4. You can folllow the deletion process in the tab `Events`.
+5. View the stack list. You should see the status `DELETE_COMPLETE`.
+![Screenshot-9](screenshots/Management-Console/09-stack-deleted-confirmation.png)
