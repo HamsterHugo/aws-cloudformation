@@ -131,3 +131,17 @@ aws ec2 describe-subnets --filters "Name=vpc-id,Values=<your-vpc-id> -no-cli-pag
 
 8. Click on `Security Groups` in the left navigation pane. Select the Security Group `Webserver-SG`. Choose the tab `Inbound Rules`:
 ![Screenshot-8](screenshots/Management-Console/08-security-group-inbound-rules.png)
+
+### 5a. Cleanup - CLI
+
+1. To delete the whole stack enter the following command:
+```Bash
+aws cloudformation delete-stack --stack-name network-infrastructure-cli
+```
+
+2. Wait a while. To check the correct deletion enter the follwoing command:
+```Bash
+aws cloudformation describe-stacks --stack-name network-infrastructure-cli
+```
+If you get an error message the deletion was successful.
+![Screenshot-5](screenshots/CLI/05-stack-deletion.png)
