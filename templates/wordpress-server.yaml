@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  Phase 2 - Wordpress server
+
+Parameters:
+  NetworkStackName:
+    Type: String
+    Description: "Name of the Phase 1 network stack to import values from"
+    Default: network-infrastructure
+  
+  LatestAmiId:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: '/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64'
+
+Resources:
+
+  EC2Instance1:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t3.micro
+      ImageId: !Ref LatestAmiId
+      NetworkInterfaces:
+        - DeviceIndex: 0
+          AssociatePublicIpAddress: true
+          DeleteOnTermination: true
+          SubnetId:
+            Fn::ImportValue:
+              Fn::Sub: "${NetworkStackName}-PublicSubnet1"
+          GroupSet:
+            - Fn::ImportValue:
+                Fn::Sub: "${NetworkStackName}-SecurityGroup"
+      Tags:
+        - Key: Name
+          Value: EC2-1
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+          dnf update -y
+          dnf install -y httpd php php-mysqlnd php-fpm php-json
+          systemctl start httpd
+          systemctl enable httpd
+          dnf install -y mariadb105
+          wget https://wordpress.org/latest.tar.gz -P /tmp
+          tar -xzf /tmp/latest.tar.gz -C /var/www/html --strip-components=1
+          chown -R apache:apache /var/www/html
+          chmod -R 755 /var/www/html
+          systemctl restart httpd
