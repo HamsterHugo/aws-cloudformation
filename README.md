@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-This learning project's aim is to design, deploy and document a Web application using AWS CloudFOrmation following Infrastructure as Code (IaC) principles. The project consists of three phases. In phase 1 the network infrastructure will be set up. In phase 2 the network will be extended with an Amazon EC2 instance hosting a web server. In phase 3 an AWS Auto Scaling and an Application Load Balancer will be added to the infrastructure.
+This learning project's aim is to design, deploy and document a Web application using AWS CloudFormation following Infrastructure as Code (IaC) principles. The project consists of three phases. In phase 1 the network infrastructure will be set up. In phase 2 the network will be extended with an Amazon EC2 instance hosting a web server. In phase 3 an AWS Auto Scaling and an Application Load Balancer will be added to the infrastructure.
 
 ## 📁 Repository Structure
 
@@ -12,7 +12,7 @@ This learning project's aim is to design, deploy and document a Web application 
 aws-cloudformation/
 ├── diagrams/                    # Folder with all diagrams
 ├── screenshots/                 # Folder with screenshots
-    ├── 01-netork/
+    ├── 01-network/
         ├── CLI/                 # Folder with CLI screenshots
         └── Management-Console/  # Folder with Management Console screenshots
     └── 02-webserver/
@@ -94,7 +94,7 @@ Repeat the command until `StackStatus` shows `CREATE_COMPLETE`.
 11. Keep the defaults for `Stack Options`.
 12. Click on the button `Next`.
 13. Check the summary and finally click on the button `Submit`.
-14. Now AWS creates the stack. Click on the `Events` tab and wait until the status of each reasource changed from `CREATE_IN_PROGRESS` to `CREATE_CPMPLETE`.
+14. Now AWS creates the stack. Click on the `Events` tab and wait until the status of each resource changed from `CREATE_IN_PROGRESS` to `CREATE_COMPLETE`.
 
 #### 4a. Validation - AWS CLI
 
@@ -111,7 +111,7 @@ aws cloudformation describe-stacks --stack-name network-infrastructure-cli --que
 ![Screenshot-3](screenshots/01-network/CLI/03-outputs.png)
 Take a note of the VPC id (`vpc-...`).
 
-3. To check the creation of the subsnets enter the following command:
+3. To check the creation of the subnets enter the following command:
 ```
 Bash
 aws ec2 describe-subnets --filters "Name=vpc-id,Values=<your-vpc-id> -no-cli-pager"
@@ -151,7 +151,7 @@ aws ec2 describe-subnets --filters "Name=vpc-id,Values=<your-vpc-id> -no-cli-pag
 aws cloudformation delete-stack --stack-name network-infrastructure-cli
 ```
 
-2. Wait a while. To check the correct deletion enter the follwoing command:
+2. Wait a while. To check the correct deletion enter the following command:
 ```Bash
 aws cloudformation describe-stacks --stack-name network-infrastructure-cli
 ```
@@ -162,7 +162,7 @@ If you get an error message the deletion was successful.
 
 1. Enter `Cloudformation` into the search box and select it which opens the CloudFormation console.
 2. Select the stack and click on the button `Delete`.
-3. In the conformation window click on `Delete`.
+3. In the confirmation window click on `Delete`.
 4. You can folllow the deletion process in the tab `Events`.
 5. View the stack list. You should see the status `DELETE_COMPLETE`.
 ![Screenshot-9](screenshots/01-network/Management-Console/09-stack-deleted-confirmation.png)
