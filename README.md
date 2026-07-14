@@ -38,6 +38,8 @@ The objective of this project is to design, deploy, and document a highly availa
 
 ### 🏗️ Architecture Diagram
 
+The following diagram shows the network infrastructure deployed in Phase 1, including the VPC, public and private subnets across two Availability Zones, the Internet Gateway, and the route tables.
+
 ![Architecture Diagram](diagrams/phase-1.png)
 
 ### 📋 Prerequisites
