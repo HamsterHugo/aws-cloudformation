@@ -10,19 +10,18 @@ This learning project's aim is to design, deploy and document a Web application 
 
 ```
 aws-cloudformation/
-├── diagrams/                    # Folder with all diagrams
-├── screenshots/                 # Folder with screenshots
-    ├── 01-network/
-        ├── CLI/                 # Folder with CLI screenshots
-        └── Management-Console/  # Folder with Management Console screenshots
-    └── 02-webserver/
-        ├── CLI/                 # Folder with CLI screenshots
-        └── Management-Console   # Folder with Management Console screenshots
-├── templates/
-    ├── network-security.yaml    # Yaml file the network infrastructure
-    └── wordpress-server.yaml    # Yaml file for the web server
-├── .gitignore                   # Gitignore file
-└── README.md                    # This file
+├── diagrams/                          # Architecture diagrams (PNG + Excalidraw source files)
+├── screenshots/                       # Deployment and validation screenshots
+│   ├── 01-network/                    # Phase 1 screenshots
+│   │   ├── CLI/                       # CLI screenshots
+│   │   └── Management-Console/        # Console screenshots
+│   └── 02-webserver/                  # Phase 2 screenshots
+│       └── CLI/                       # CLI screenshots only
+├── templates/                         # CloudFormation templates
+│   ├── network-security.yaml          # Phase 1: Network infrastructure
+│   └── wordpress-server.yaml          # Phase 2: WordPress web server
+├── .gitignore                         # Gitignore (includes *.pem)
+└── README.md                          # Project documentation
 ```
 
 ## Phase 1: Network Infrastructure
