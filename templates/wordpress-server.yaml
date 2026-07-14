@@ -12,6 +12,10 @@ Parameters:
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
     Default: '/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64'
 
+  KeyPairName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: "Parameter for the KeyPair for SSH authentication."
+
 Resources:
 
   EC2Instance1:
@@ -19,6 +23,7 @@ Resources:
     Properties:
       InstanceType: t3.micro
       ImageId: !Ref LatestAmiId
+      KeyName: !Ref KeyPairName
       NetworkInterfaces:
         - DeviceIndex: 0
           AssociatePublicIpAddress: true
@@ -45,3 +50,11 @@ Resources:
           chown -R apache:apache /var/www/html
           chmod -R 755 /var/www/html
           systemctl restart httpd
+
+Outputs:
+  PublicIP:
+    Description: "Public IP address of the EC2 instance."
+    Value: !GetAtt EC2Instance1.PublicIp
+  PublicDNS:
+    Description: "Public DNS name of the EC2 instance."
+    Value: !GetAtt EC2Instance1.PublicDnsName
