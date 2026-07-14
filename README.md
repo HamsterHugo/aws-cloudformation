@@ -44,12 +44,11 @@ The following diagram shows the network infrastructure deployed in Phase 1, incl
 
 ### 📋 Prerequisites
 
-You need the following for deploying this infrastructure:
-
-* basic knowledge of AWS
-* an AWS account
-* AWS CLI (v2.34.38 or later) - [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-* git for cloning the repository
+* Basic knowledge of AWS and CloudFormation
+* An AWS account with sufficient permissions to create VPCs, subnets, and security groups
+* AWS CLI (v2 or later) - [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+* Git for cloning the repository
+* Your current public IP address in CIDR notation (e.g. `203.0.113.42/32`) - check via [checkip.amazonaws.com](https://checkip.amazonaws.com)
 
 ### 🔧 Deployment Steps
 
