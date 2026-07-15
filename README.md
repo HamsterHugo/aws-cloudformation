@@ -105,25 +105,32 @@ Alternatively, you can use the `wait` command to automatically wait until the st
 14. Check the summary and finally click on the button `Submit`.
 15. AWS starts creating the stack. In the tab `Events` you can follow the progress. Wait until the status shows `CREATE_COMPLETE`.
 
-#### 4a. Validation - AWS CLI
+### ✅ Validation
+
+#### AWS CLI
 
 1. To check the creation of the resources enter the following command:
 ```Bash
-aws cloudformation describe-stack-resources --stack-name network-infrastructure-cli --no-cli-pager
+aws cloudformation describe-stack-resources \
+--stack-name network-infrastructure \
+--query "StackResources[*].{Resource:LogicalResourceId,Status:ResourceStatus}" \
+--no-cli-pager
 ```
 ![Screenshot-2](screenshots/01-network/CLI/02-stack-resources.png)
 
 2. To check the output enter the following command:
 ```Bash
-aws cloudformation describe-stacks --stack-name network-infrastructure-cli --query "Stacks[0].Outputs"
+aws cloudformation describe-stacks \
+--stack-name network-infrastructure \
+--query "Stacks[0].Outputs" \
+--no-cli-pager
 ```
 ![Screenshot-3](screenshots/01-network/CLI/03-outputs.png)
-Take a note of the VPC id (`vpc-...`).
+Note the VPC ID from the output (e.g. `vpc-0a1b2c3d`), you will need it for the next command.
 
 3. To check the creation of the subnets enter the following command:
-```
-Bash
-aws ec2 describe-subnets --filters "Name=vpc-id,Values=<your-vpc-id> -no-cli-pager"
+```Bash
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=<YOUR-VPC-ID>" --no-cli-pager
 ```
 ![Screenshot-4](screenshots/01-network/CLI/04-subnets.png)
 
