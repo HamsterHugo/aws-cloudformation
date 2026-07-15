@@ -111,19 +111,13 @@ Alternatively, you can use the `wait` command to automatically wait until the st
 
 1. To check the creation of the resources enter the following command:
 ```Bash
-aws cloudformation describe-stack-resources \
---stack-name network-infrastructure \
---query "StackResources[*].{Resource:LogicalResourceId,Status:ResourceStatus}" \
---no-cli-pager
+aws cloudformation describe-stack-resources --stack-name network-infrastructure --query "StackResources[*].{Resource:LogicalResourceId,Status:ResourceStatus}" --no-cli-pager
 ```
 ![Screenshot-2](screenshots/01-network/CLI/01-stack-resources.png)
 
 2. To check the output enter the following command:
 ```Bash
-aws cloudformation describe-stacks \
---stack-name network-infrastructure \
---query "Stacks[0].Outputs" \
---no-cli-pager
+aws cloudformation describe-stacks --stack-name network-infrastructure --query "Stacks[0].Outputs" --no-cli-pager
 ```
 ![Screenshot-3](screenshots/01-network/CLI/02-outputs.png)
 Note the VPC ID from the output (e.g. `vpc-0a1b2c3d`), you will need it for the next command.
