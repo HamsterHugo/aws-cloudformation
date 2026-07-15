@@ -95,14 +95,15 @@ Alternatively, you can use the `wait` command to automatically wait until the st
 4. Click on the button `Create Stack`.
 5. Choose `With new Resources (Standard)` .
 6. In the section `Prerequisite - Prepare template` choose `Template is ready`.
-7. In the section `Specify template` choose `Upload a template file` and select the file `template.yaml`.
+7. In the section `Specify template` choose `Upload a template file` and select the file `network-security.yaml`.
 8. Click on the button `Next`.
 9. Enter `network-infrastructure` for the field `Stack name`.
-10. Click on the button `Next`.
-11. Keep the defaults for `Stack Options`.
-12. Click on the button `Next`.
-13. Check the summary and finally click on the button `Submit`.
-14. Now AWS creates the stack. Click on the `Events` tab and wait until the status of each resource changed from `CREATE_IN_PROGRESS` to `CREATE_COMPLETE`.
+10. Enter your public IP address in CIDR notation (e.g. `203.0.113.42/32`) in the field `MyIpAddress`.
+11. Click on the button `Next`.
+12. Keep the defaults for `Stack Options`.
+13. Click on the button `Next`.
+14. Check the summary and finally click on the button `Submit`.
+15. AWS starts creating the stack. In the tab `Events` you can follow the progress. Wait until the status shows `CREATE_COMPLETE`.
 
 #### 4a. Validation - AWS CLI
 
