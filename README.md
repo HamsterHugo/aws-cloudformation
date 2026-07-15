@@ -116,7 +116,7 @@ aws cloudformation describe-stack-resources \
 --query "StackResources[*].{Resource:LogicalResourceId,Status:ResourceStatus}" \
 --no-cli-pager
 ```
-![Screenshot-2](screenshots/01-network/CLI/02-stack-resources.png)
+![Screenshot-2](screenshots/01-network/CLI/01-stack-resources.png)
 
 2. To check the output enter the following command:
 ```Bash
@@ -125,14 +125,14 @@ aws cloudformation describe-stacks \
 --query "Stacks[0].Outputs" \
 --no-cli-pager
 ```
-![Screenshot-3](screenshots/01-network/CLI/03-outputs.png)
+![Screenshot-3](screenshots/01-network/CLI/02-outputs.png)
 Note the VPC ID from the output (e.g. `vpc-0a1b2c3d`), you will need it for the next command.
 
 3. To check the creation of the subnets enter the following command where you replace `<YOUR-VPC-ID>` with the vpc-id from above:
 ```Bash
 aws ec2 describe-subnets --filters "Name=vpc-id,Values=<YOUR-VPC-ID>" --query "Subnets[*].{ID:SubnetId,CIDR:CidrBlock,AZ:AvailabilityZone,Public:MapPublicIpOnLaunch}" --no-cli-pager
 ```
-![Screenshot-4](screenshots/01-network/CLI/04-subnets.png)
+![Screenshot-4](screenshots/01-network/CLI/03-subnets.png)
 
 #### 4b. Validation - AWS Management Console
 
