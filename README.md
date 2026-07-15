@@ -128,7 +128,7 @@ aws ec2 describe-subnets --filters "Name=vpc-id,Values=<YOUR-VPC-ID>" --query "S
 ```
 ![Screenshot-3](screenshots/01-network/CLI/03-subnets.png)
 
-#### 4b. Validation - AWS Management Console
+#### AWS Management Console
 
 1. View your stack and select the tab `Resources`:
 ![Screenshot-1](screenshots/01-network/Management-Console/01-stack-resources.png)
@@ -170,7 +170,7 @@ aws cloudformation describe-stacks --stack-name network-infrastructure --no-cli-
 If you get an error message the deletion was successful.
 ![Screenshot-4](screenshots/01-network/CLI/04-stack-deletion.png)
 
-#### 5b. Cleanup - AWS Management Console
+#### AWS Management Console
 
 1. Enter `Cloudformation` into the search box and select it which opens the CloudFormation console.
 2. Select the stack and click on the button `Delete`.
