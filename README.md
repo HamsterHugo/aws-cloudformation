@@ -4,13 +4,13 @@
 
 ## Project Overview
 
-This learning project's aim is to design, deploy and document a Web application using AWS CloudFormation following Infrastructure as Code (IaC) principles. The project consists of three phases. In phase 1 the network infrastructure will be set up. In phase 2 the network will be extended with an Amazon EC2 instance hosting a web server. In phase 3 an AWS Auto Scaling and an Application Load Balancer will be added to the infrastructure.
+This learning project's aim is to design, deploy and document a Web application using AWS CloudFormation following Infrastructure as Code (IaC) principles rather than manually configuring each resource through the AWS console. The project consists of three phases. In phase 1 the network infrastructure will be set up. In phase 2 the network will be extended with an Amazon EC2 instance hosting a web server. In phase 3 an AWS Auto Scaling and an Application Load Balancer will be added to the infrastructure.
 
 ## 📁 Repository Structure
 
 ```
 aws-cloudformation/
-├── diagrams/                          # Architecture diagrams (PNG + Excalidraw source files)
+├── diagrams/                          # Architecture diagrams
 ├── screenshots/                       # Deployment and validation screenshots
 │   ├── 01-network/                    # Phase 1 screenshots
 │   │   ├── CLI/                       # CLI screenshots
@@ -20,7 +20,7 @@ aws-cloudformation/
 ├── templates/                         # CloudFormation templates
 │   ├── network-security.yaml          # Phase 1: Network infrastructure
 │   └── wordpress-server.yaml          # Phase 2: WordPress web server
-├── .gitignore                         # Gitignore (includes *.pem)
+├── .gitignore                         # Gitignore
 └── README.md                          # Project documentation
 ```
 
@@ -28,7 +28,7 @@ aws-cloudformation/
 
 ### 🚀 Objective
 
-The objective of this project is to design, deploy, and document a highly available AWS infrastructure using AWS CloudFormation following Infrastructure as Code (IaC) principles rather than manually configuring each resource through the AWS console. The stack was deployed and validated using both the AWS Management Console and the AWS CLI. The infrastructure consists of:
+The objective of phase 1 is to set up the AWS infrastructure using AWS CloudFormation. The first stack can be deployed and validated using both the AWS CLI and AWS Management Console. The infrastructure consists of:
 
 * a VPC
 * 2 public and 2 private subnets across 2 Availability Zones
