@@ -180,6 +180,12 @@ Resources:
 
 Outputs:
 
+  VPCID:
+    Description: "VPC ID"
+    Value: !Ref MyVPC
+    Export:
+      Name: !Sub "${AWS::StackName}-VPC"
+
   PublicSubnet1Id:
     Description: "Public Subnet 1 ID"
     Value: !Ref PublicSubnet1

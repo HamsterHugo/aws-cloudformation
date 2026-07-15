@@ -128,9 +128,9 @@ aws cloudformation describe-stacks \
 ![Screenshot-3](screenshots/01-network/CLI/03-outputs.png)
 Note the VPC ID from the output (e.g. `vpc-0a1b2c3d`), you will need it for the next command.
 
-3. To check the creation of the subnets enter the following command:
+3. To check the creation of the subnets enter the following command where you replace `<YOUR-VPC-ID>` with the vpc-id from above:
 ```Bash
-aws ec2 describe-subnets --filters "Name=vpc-id,Values=<YOUR-VPC-ID>" --no-cli-pager
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=<YOUR-VPC-ID>" --query "Subnets[*].{ID:SubnetId,CIDR:CidrBlock,AZ:AvailabilityZone,Public:MapPublicIpOnLaunch}" --no-cli-pager
 ```
 ![Screenshot-4](screenshots/01-network/CLI/04-subnets.png)
 
