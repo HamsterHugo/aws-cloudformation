@@ -191,6 +191,6 @@ Deploy an Amazon EC2 instance within the Public Subnet created in Phase 1 and in
 
 ### 🔧 Deployment Steps
 
-### Validation
+### ✅ Validation
 
-### Cleanup
+### 🧹 Cleanup
