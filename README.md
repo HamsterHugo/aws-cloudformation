@@ -70,14 +70,22 @@ cd aws-cloudformation
 
 1. Create the stack:
 ```Bash
-aws cloudformation create-stack --stack-name network-infrastructure-cli --template-body file://template.yaml
+aws cloudformation create-stack \
+ --stack-name network-infrastructure \
+ --template-body file://templates/network-security.yaml \
+ --parameters ParameterKey=MyIpAddress,ParameterValue=<YOUR-IP>/32
+ --no-cli-page
 ```
+
+Replace `<YOUR-IP>` with your public IP address.
 
 2. Check the status:
 ```Bash
-aws cloudformation describe-stacks --stack-name network-infrastructure-cli
+aws cloudformation describe-stacks --stack-name network-infrastructure
 ```
 Repeat the command until `StackStatus` shows `CREATE_COMPLETE`.
+
+Alternatively, you can use the `wait` command to automatically wait until the stack is complete. 
 
 #### 3b. Deployment - AWS Management Console
 
