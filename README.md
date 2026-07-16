@@ -74,7 +74,7 @@ aws cloudformation create-stack \
  --stack-name network-infrastructure \
  --template-body file://templates/network-security.yaml \
  --parameters ParameterKey=MyIpAddress,ParameterValue=<YOUR-IP>/32
- --no-cli-page
+ --no-cli-pager
 ```
 
 Replace `<YOUR-IP>` with your public IP address.
