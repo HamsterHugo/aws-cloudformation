@@ -210,6 +210,23 @@ The following diagram shows the infrastructure deployed in Phase 2, extending th
 
 ### 🔧 Deployment Steps
 
+#### Create KeyPair
+
+```bash
+aws ec2 create-key-pair --key-name wordpress-keypair --key-type ed25519 --query 'KeyMaterial' --output text | Out-File -FilePath wordpress-keypair.pem -Encoding ASCII
+```
+
+#### 2. Deploy Phase 2 Stack
+
+```bash
+aws cloudformation create-stack --stack-name wordpress-server --template-body file://templates/wordpress-server.yaml --parameters ParameterKey=KeyPairName,ParameterValue=wordpress-keypair --no-cli-pager
+```
+
+Wait until the stack is complete:
+```bash
+aws cloudformation wait stack-create-complete --stack-name wordpress-server
+```
+
 ### ✅ Validation
 
 ### 🧹 Cleanup
