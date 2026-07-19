@@ -187,7 +187,12 @@ aws cloudformation wait stack-delete-complete --stack-name network-infrastructur
 
 ### 🚀 Objective
 
-Deploy an Amazon EC2 instance within the Public Subnet created in Phase 1 and install WordPress to create a functional web application environment.
+The objective of phase 2 is to extend the network infrastructure from phase 1 by deploying an Amazon EC2 instance hosting a WordPress web server. The entire installation is automated using CloudFormation UserData following Infrastructure as Code (IaC) principles. No manual configuration via SSH is required for the installation. The infrastructure consists of:
+
+* an EC2 instance (t3.micro, Amazon Linux 2023) in the public subnet
+* Apache web server, PHP and MariaDB client installed automatically via UserData
+* WordPress downloaded and configured automatically via UserData
+* SSH access restricted to the user's public IP via KeyPair authentication
 
 ### 🏗️ Architecture Diagram
 
