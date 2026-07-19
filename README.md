@@ -196,6 +196,10 @@ The objective of phase 2 is to extend the network infrastructure from phase 1 by
 
 ### 🏗️ Architecture Diagram
 
+The following diagram shows the infrastructure deployed in Phase 2, extending the network from Phase 1 with an EC2 instance hosting a WordPress web server in the public subnet.
+
+![Architecture Diagram](diagrams/phase-2.png)
+
 ### 📋 Prerequisites
 
 ### 🔧 Deployment Steps
