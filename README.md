@@ -58,7 +58,7 @@ Configure AWS CLI using the command:
 ```bash
 aws configure
 ```
-Enter your credentials.
+Enter your credentials. For a readable output you can set the option `Default output format` to `table`.
 
 #### 2. Clone the Repository
 ```bash
@@ -70,22 +70,22 @@ cd aws-cloudformation
 
 1. Create the stack:
 ```Bash
-aws cloudformation create-stack \
- --stack-name network-infrastructure \
- --template-body file://templates/network-security.yaml \
- --parameters ParameterKey=MyIpAddress,ParameterValue=<YOUR-IP>/32
- --no-cli-pager
+aws cloudformation create-stack --stack-name network-infrastructure --template-body file://templates/network-security.yaml --parameters ParameterKey=MyIpAddress,ParameterValue=<YOUR-IP>/32 --no-cli-pager
 ```
 
 Replace `<YOUR-IP>` with your public IP address.
 
 2. Check the status:
 ```Bash
-aws cloudformation describe-stacks --stack-name network-infrastructure
+aws cloudformation describe-stacks --stack-name network-infrastructure --no-cli-pager
 ```
 Repeat the command until `StackStatus` shows `CREATE_COMPLETE`.
 
 Alternatively, you can use the `wait` command to automatically wait until the stack is complete. 
+
+```Bash
+aws cloudformation wait stack-create-complete --stack-name network-infrastructure
+```
 
 #### 3b. Deployment - AWS Management Console
 
@@ -102,7 +102,7 @@ Alternatively, you can use the `wait` command to automatically wait until the st
 11. Click on the button `Next`.
 12. Keep the defaults for `Stack Options` and click on the button `Next`.
 13. Check the summary and finally click on the button `Submit`.
-15. AWS starts creating the stack. In the tab `Events` you can follow the progress. Wait until the status shows `CREATE_COMPLETE`.
+14. AWS starts creating the stack. In the tab `Events` you can follow the progress. Wait until the status shows `CREATE_COMPLETE`.
 
 ### ✅ Validation
 
@@ -169,12 +169,17 @@ aws cloudformation describe-stacks --stack-name network-infrastructure --no-cli-
 If you get an error message the deletion was successful.
 ![Screenshot-4](screenshots/01-network/CLI/04-stack-deletion.png)
 
+Alternatively, you can use the wait command:
+```Bash
+aws cloudformation wait stack-delete-complete --stack-name network-infrastructure
+```
+
 #### AWS Management Console
 
-1. Enter `Cloudformation` into the search box and select it which opens the CloudFormation console.
+1. Enter `CloudFormation` into the search box and select it which opens the CloudFormation console.
 2. Select the stack and click on the button `Delete`.
 3. In the confirmation window click on `Delete`.
-4. You can folllow the deletion process in the tab `Events`.
+4. You can follow the deletion process in the tab `Events`.
 5. View the stack list. You should see the status `DELETE_COMPLETE`.
 ![Screenshot-9](screenshots/01-network/Management-Console/09-stack-deleted-confirmation.png)
 
