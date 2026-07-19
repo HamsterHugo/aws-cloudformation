@@ -202,6 +202,12 @@ The following diagram shows the infrastructure deployed in Phase 2, extending th
 
 ### 📋 Prerequisites
 
+* Phase 1 stack (`network-infrastructure`) must be deployed and in status `CREATE_COMPLETE`
+* An AWS account with sufficient permissions to create EC2 instances
+* AWS CLI (v2 or later)
+* Your current public IP address in CIDR notation (e.g. `203.0.113.42/32`) - check via [checkip.amazonaws.com](https://checkip.amazonaws.com)
+* An EC2 KeyPair for SSH access (will be created in the deployment steps)
+
 ### 🔧 Deployment Steps
 
 ### ✅ Validation
