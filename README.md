@@ -229,7 +229,7 @@ aws cloudformation wait stack-create-complete --stack-name wordpress-server
 
 ### ✅ Validation
 
-TO check the details of the ec2 instance use the following command:
+To check the details of the ec2 instance use the following command:
 ```bash
 aws ec2 describe-instances --filters "Name=tag:Name,Values=EC2-1" --query "Reservations[*].Instances[*].{ID:InstanceId,State:State.Name,Type:InstanceType,IP:PublicIpAddress,AZ:Placement.AvailabilityZone,AMI:ImageId,KeyPair:KeyName}" --no-cli-pager
 ```
