@@ -210,7 +210,7 @@ The following diagram shows the infrastructure deployed in Phase 2, extending th
 
 ### 🔧 Deployment Steps
 
-#### Create KeyPair
+#### 1. Create KeyPair
 
 ```bash
 aws ec2 create-key-pair --key-name wordpress-keypair --key-type ed25519 --query 'KeyMaterial' --output text | Out-File -FilePath wordpress-keypair.pem -Encoding ASCII
