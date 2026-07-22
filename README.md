@@ -242,3 +242,9 @@ Take a note of the IP address in your output. Open your browser and enter the IP
 ![Screenshot-11](screenshots/02-webserver/02-wordpress-page.png)
 
 ### 🧹 Cleanup
+
+To delete the stack of phase 2 enter the following command:
+
+```bash
+aws cloudformation delete-stack --stack-name wordpress-server
+```
