@@ -235,6 +235,7 @@ aws ec2 describe-instances --filters "Name=tag:Name,Values=EC2-1" --query "Reser
 ```
 
 The output should look similiar to that:
+
 ![Screenshot-10](screenshots/02-webserver/01-instance-details.png)
 
 Take a note of the IP address in your output. Open your browser and enter the IP address in the URL. It should show you the wordpress page. If the browser shows you a connection error, just wait a few minutes.
